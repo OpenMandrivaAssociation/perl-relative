@@ -1,6 +1,6 @@
 %define module   relative
 %define version    0.04
-%define release    %mkrel 2
+%define release    %mkrel 3
 
 Name:       perl-%{module}
 Version:    %{version}
