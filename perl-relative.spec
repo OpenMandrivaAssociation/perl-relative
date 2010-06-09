@@ -1,19 +1,23 @@
-%define module   relative
-%define version    0.04
-%define release    %mkrel 3
+%define upstream_name    relative
+%define upstream_version 0.04
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 4
+
 Summary:    Load modules with relative names
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module//%{module}-%{version}.tar.gz
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module//%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Test::More)
 BuildRequires: perl(UNIVERSAL::require)
+
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
+
+Provides: perl(relative)
 
 %description
 This module allows you to load modules using only parts of their name,
@@ -23,19 +27,17 @@ hierarchy using the '..::' syntax.
 
 In order to further loosen the namespace coupling, 'import' returns the
 full names of the loaded modules, making object-oriented code easier to
-write:
-
-    use relative;
+write.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-make test
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -46,7 +48,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc Changes README README
+%doc Changes README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
