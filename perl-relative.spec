@@ -2,14 +2,14 @@
 %define upstream_version 0.04
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	8
+Version:	%{upstream_version}
+Release:	9
 
 Summary:	Load modules with relative names
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module//%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/relative
+Source0:	https://cpan.metacpan.org/authors/id/S/SA/SAPER/relative-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
