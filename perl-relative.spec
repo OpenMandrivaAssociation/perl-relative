@@ -3,13 +3,13 @@
 
 Name:		perl-%{upstream_name}
 Version:	%{upstream_version}
-Release:	9
+Release:	1
 
 Summary:	Load modules with relative names
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/relative
-Source0:	https://cpan.metacpan.org/authors/id/S/SA/SAPER/relative-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/S/SA/SAPER/relative-0.04.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -47,27 +47,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
-%changelog
-* Mon Apr 25 2011 Funda Wang <fwang@mandriva.org> 0.40.0-5mdv2011.0
-+ Revision: 658904
-- rebuild for updated spec-helper
-
-* Wed Jun 09 2010 Jérôme Quelin <jquelin@mandriva.org> 0.40.0-4mdv2011.0
-+ Revision: 547335
-- reabuild using %%perl_convert_version, provides perl(relative)
-
-* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.04-3mdv2010.0
-+ Revision: 430534
-- rebuild
-
-* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 0.04-2mdv2009.0
-+ Revision: 268940
-- rebuild early 2009.0 package (before pixel changes)
-
-* Sat May 31 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.04-1mdv2009.0
-+ Revision: 213740
-- import perl-relative
-
-
-* Sat May 31 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.04-1mdv2009.0
-- first mdv release
