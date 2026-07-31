@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	0.04
-Release:	10
+Release:	1
 
 Summary:	Load modules with relative names
 License:	GPL+ or Artistic
@@ -34,18 +34,18 @@ write.
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make
-
+%make_build
 %check
 # soft: do not fail package on test failures
 set +e
+make test || :
 %make test || :
 
 %install
 %makeinstall_std
 
 %files
-%doc Changes README META.yml
+%doc Changes META.yml README
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
