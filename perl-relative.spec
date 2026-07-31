@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	0.04
-Release:	5
+Release:	6
 
 Summary:	Load modules with relative names
 License:	GPL+ or Artistic
